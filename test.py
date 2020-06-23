@@ -1,4 +1,3 @@
-nums = [-1, 0,]
-
-print(nums[0:1])
-print(nums[1:])
+a = 1.2
+b = 1.9
+print(int(b))
