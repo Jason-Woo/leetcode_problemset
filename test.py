@@ -1,3 +1,2 @@
-a = 1.2
-b = 1.9
-print(int(b))
+str = 'abcdefg'
+print(str[1:1])
