@@ -7,7 +7,6 @@ class Solution:
         rmost = self.rightsearch(A, target)
         return [lmost, rmost]
 
-
     def leftsearch(self, A, tar):
         l = 0
         r = len(A) - 1

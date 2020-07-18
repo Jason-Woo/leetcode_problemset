@@ -1,2 +1,4 @@
-str = 'abcdefg'
-print(str[1:1])
+a = 1
+b = 2
+mid = (a+b) / 2
+print(mid)
