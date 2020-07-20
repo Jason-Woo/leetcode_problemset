@@ -1,4 +1,4 @@
-a = 1
-b = 2
-mid = (a+b) / 2
-print(mid)
+a = [1, 2, 3]
+b = [1, 3, 2]
+c = {a, b}
+print(c)
