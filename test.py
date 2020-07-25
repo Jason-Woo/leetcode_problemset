@@ -1,2 +1,3 @@
-a = '0'
-print(ord(a))
+a =[1,0,0]
+b = a.pop(0)
+print(a,b)
