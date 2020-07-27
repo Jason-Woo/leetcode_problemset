@@ -4,10 +4,12 @@ class Solution(object):
             result.append(path)
             return
         for i in range(idx, len(candidates)):
+            if i > idx and candidates[i] == candidates[i - 1]:
+                continue
             if target >= candidates[i]:
-                self.dfs(candidates, target - candidates[i], path + [candidates[i]], result, i) #usage of i
+                self.dfs(candidates, target - candidates[i], path + [candidates[i]], result, i + 1) #usage of i
 
-    def combinationSum(self, candidates, target):
+    def combinationSum2(self, candidates, target):
         """
         :type candidates: List[int]
         :type target: int
