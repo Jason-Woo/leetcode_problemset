@@ -1,16 +1,29 @@
-# -*- coding:utf-8 -*-
-class Solution:
-    def reOrderArray(self, array):
-        # write code here
-        arr_ord = []
-        arr_even = []
-        for num in array:
-            if num % 2 == 0:
-                arr_even.append(num)
-            else:
-                arr_ord.append(num)
-        arr_ord.extend(arr_even)
-        return arr_ord
 
-s = Solution()
-print(s.reOrderArray([1,2,3,4,5,6,7]))
+class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+
+class Solution:
+    def HasSubtree(self, pRoot1, pRoot2):
+        # write code here
+        results = False
+        if pRoot1 is None or pRoot2 is None:
+            return False
+        if pRoot1.val == pRoot2.val:
+            results = self.isSubTree(pRoot1, pRoot2)
+        if results is False:
+            results = self.HasSubtree(pRoot1.left, pRoot2) | self.HasSubtree(pRoot1.right, pRoot2)
+
+        return results
+
+    def isSubTree(self, pRoot1, pRoot2):
+        if pRoot2 is None:
+            return True
+        if pRoot1 is None:
+            return False
+        if pRoot1.val != pRoot2.val:
+            return False
+        else:
+            return self.isSubTree(pRoot1.left, pRoot2.left) & self.isSubTree(pRoot1.right, pRoot2.right)
