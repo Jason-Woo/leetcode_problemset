@@ -11,6 +11,3 @@ class Solution:
                 arr_ord.append(num)
         arr_ord.extend(arr_even)
         return arr_ord
-
-s = Solution()
-print(s.reOrderArray([1,2,3,4,5,6,7]))
