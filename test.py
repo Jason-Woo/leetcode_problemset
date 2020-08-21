@@ -1,21 +1,13 @@
 # -*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 class Solution:
-    def IsPopOrder(self, pushV, popV):
+    def FindGreatestSumOfSubArray(self, array):
         # write code here
-        stack = []
-        while popV:
-            if not pushV and popV[0] != stack[-1]:
-                return False
-            if not stack or popV[0] != stack[-1]:
-                stack.append(pushV.pop(0))
-            else:
-                popV.pop(0)
-                stack.pop()
-        return True
+        dp = [-1 for _ in range(len(array))]
+        dp[0] = array[0]
+        for i in range(1, len(array)):
+            dp[i] = max(dp[i - 1] + array[i], array[i])
+        return max(dp)
 
-a = [1,2,3,4,5]
-b = [4,5,3,2,1]
-c = [4,3,5,1,2]
-d = [1,2,3,4,5]
 s = Solution()
-print(s.IsPopOrder(a, c))
+print(s.FindGreatestSumOfSubArray([6,-3,-2,7,-15,1,2,2]))
