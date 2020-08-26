@@ -1,26 +1,35 @@
 # -*- coding:utf-8 -*-
 class Solution:
-    def StrToInt(self, s):
+    # s字符串
+    def isNumeric(self, s):
         # write code here
         if len(s) == 0:
-            return 0
-        ans = 0
-        digit = 1
-        for i in range(len(s) - 1, 0, -1):
-            if ord(s[i]) in range(ord('0'), ord('9')):
-                ans += digit * (ord(s[i]) - ord('0'))
-                digit *= 10
+            return False
+        pos = 0
+        dot_cnt = 0
+        if s[0] == '+' or s[0] == '-':
+            pos += 1
+        while pos < len(s) and s[pos] != 'E' and s[pos] != 'e':
+            if ord(s[pos]) in range(ord('0'), ord('9') + 1):
+                pos += 1
+            elif s[pos] == '.' and dot_cnt == 0:
+                pos += 1
+                dot_cnt += 1
             else:
-                return 0
-        if s[0] == '+':
-            return ans
-        elif s[0] == '-':
-            return -1 * ans
-        elif ord(s[0]) in range(ord('0'), ord('9')):
-            ans += digit * (ord(s[0]) - ord('0'))
-            return ans
-        else:
-            return 0
+                return False
+        if pos == len(s):
+            return True
+        pos += 1
+        if pos == len(s):
+            return False
+        if s[pos] == '+' or s[pos] == '-':
+            pos += 1
+        while pos < len(s):
+            if ord(s[pos]) in range(ord('0'), ord('9') + 1):
+                pos += 1
+            else:
+                return False
+        return True
 
 s = Solution()
-print(s.StrToInt(' '))
+print(s.isNumeric("1.2.3"))
