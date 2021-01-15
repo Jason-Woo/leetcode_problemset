@@ -25,8 +25,3 @@ class Solution(object):
         if over_flow == 1:
             ans = '1' + ans
         return ans
-
-
-
-s = Solution()
-print(s.addBinary('1010','1011'))
