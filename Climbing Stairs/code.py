@@ -14,8 +14,3 @@ class Solution(object):
             if i - 2 >=0:
                 dp[i] += dp[i - 2]
         return dp[-1]
-
-
-
-s = Solution()
-print(s.climbStairs(3))
