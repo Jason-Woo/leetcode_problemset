@@ -18,8 +18,3 @@ class Solution(object):
             else:
                 stack.append(p)
         return "/" + "/".join(stack)
-
-
-
-s = Solution()
-print(s.simplifyPath("/home/"))
