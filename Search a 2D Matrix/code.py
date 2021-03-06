@@ -26,10 +26,3 @@ class Solution(object):
             else:
                 return False
         return False
-
-
-
-a = [[1],[2]]
-b = 3
-s = Solution()
-print(s.searchMatrix(a, b))
